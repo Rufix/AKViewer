@@ -13,7 +13,6 @@ type OperatorListProps =
 
 class OperatorList extends React.PureComponent<OperatorListProps> {
     public render() {
-        this.props.getOperatorsList();
         const operatorList: OperatorListItem[] = this.props.operators;
         return (
             <React.Fragment>

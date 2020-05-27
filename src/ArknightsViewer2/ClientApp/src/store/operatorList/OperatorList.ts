@@ -17,10 +17,14 @@ export interface OperatorListState {
 
 interface RequestOperatorsAction {
     type: 'REQUEST_OPERATORS_LIST';
+}
+
+interface ReceiveOperatorsAction {
+    type: 'RECEIVE_OPERATORS_LIST';
     operators: OperatorListItem[];
 }
 
-type KnownAction = RequestOperatorsAction | any;
+type KnownAction = RequestOperatorsAction | ReceiveOperatorsAction;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
@@ -31,8 +35,8 @@ const operatorListService: IOperatorListService = new OperatorListService();
 function doGetOperatorsList(dispatch: (action: KnownAction) => void, getState: () => ApplicationState): void {
     const appState = getState();
     if (appState && appState.operatorsList) {
-        const newState = { type: 'REQUEST_OPERATORS_LIST', operators: operatorListService.getOperators() };
-        dispatch(newState);
+        dispatch({ type: 'REQUEST_OPERATORS_LIST' });
+        dispatch({ type: 'RECEIVE_OPERATORS_LIST', operators: operatorListService.getOperators() });
     }
 }
 
@@ -58,9 +62,12 @@ export const reducer: Reducer<OperatorListState> = (state: OperatorListState | u
     switch (action.type) {
         case 'REQUEST_OPERATORS_LIST':
             return {
+                operators: []
+            };
+        case 'RECEIVE_OPERATORS_LIST':
+            return {
                 operators: action.operators
             };
-        default: break;
     }
 
     return state;
