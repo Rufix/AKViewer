@@ -6,12 +6,22 @@ import OperatorListTable from './OperatorListTable';
 import { OperatorListItem } from '../types';
 import { RouteComponentProps } from 'react-router';
 
+import '../style.css'
+
 type OperatorListProps =
     OperatorListStore.OperatorListState &
     typeof OperatorListStore.actionCreators &
     RouteComponentProps<{}>;
 
 class OperatorList extends React.PureComponent<OperatorListProps> {
+    public componentDidMount() {
+        this.ensureDataFetched();
+    }
+
+    private ensureDataFetched() {
+        this.props.getOperatorsList();
+    }
+
     public render() {
         const operatorList: OperatorListItem[] = this.props.operators;
         return (
@@ -27,6 +37,6 @@ class OperatorList extends React.PureComponent<OperatorListProps> {
 }
 
 export default connect(
-    (state: ApplicationState) => state.operatorsList,
+    (state: ApplicationState) => state.operatorList,
     OperatorListStore.actionCreators
 )(OperatorList as any);

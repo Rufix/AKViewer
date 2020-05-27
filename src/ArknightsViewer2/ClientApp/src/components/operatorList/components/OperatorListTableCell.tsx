@@ -4,7 +4,7 @@ import React from 'react';
 class OperatorListTableCell extends React.PureComponent<OperatorListItem> {
     public render() {
         return (
-            <div>
+            <div className="operator-list-table-cell">
                 <p>
                     {this.props.name}
                 </p>

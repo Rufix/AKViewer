@@ -1,0 +1,14 @@
+﻿.operator-list-table-cell {
+    float: left;
+    width: 100px;
+    text-align: center;
+    border: 1px darkblue solid;
+}
+
+.operator-list-table-cell > p {
+    margin: 5px 0px;
+}
+
+.operator-list-table {
+    display: table;
+}

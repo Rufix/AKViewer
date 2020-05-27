@@ -12,7 +12,9 @@ class OperatorListTable extends React.PureComponent<OperatorListTableProps> {
     public render() {
         const table = this.buildTable();
         return (
-            { table }
+            <React.Fragment>
+                {table}
+            </React.Fragment>
         );
     }
 
@@ -20,21 +22,20 @@ class OperatorListTable extends React.PureComponent<OperatorListTableProps> {
         const numberOfRows = Math.ceil(this.props.operators.length / this.operatorsPerRow);
         let operatorRows: JSX.Element[] = [];
         for (let i = 0; i < numberOfRows; i++) {
-            const row = this.buildRow(this.props.operators.slice(i * this.operatorsPerRow, this.operatorsPerRow), i);
+            const row = this.buildRow(this.props.operators.slice(i * this.operatorsPerRow, (i + 1) * this.operatorsPerRow), i);
             operatorRows.push(row);
         }
         return (
-            <div>
+            <div className="operator-list-table">
                 {operatorRows}
             </div>
         );
     }
 
     private buildRow(operators: OperatorListItem[], rowNumber: number): JSX.Element {
-        const list = operators.slice(rowNumber * this.operatorsPerRow, this.operatorsPerRow)
-            .map((operator, index) => (<OperatorListTableCell key={index} name={operator.name} />));
+        const list = operators.map((operator) => (<OperatorListTableCell key={operator.name} name={operator.name} />));
         return (
-            <div>
+            <div key={rowNumber}>
                 {list}
             </div>
         );

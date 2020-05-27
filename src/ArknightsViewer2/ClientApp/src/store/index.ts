@@ -6,7 +6,7 @@ import * as OperatorList from './operatorList/OperatorList';
 export interface ApplicationState {
     counter: Counter.CounterState | undefined;
     weatherForecasts: WeatherForecasts.WeatherForecastsState | undefined;
-    operatorsList: OperatorList.OperatorListState | undefined;
+    operatorList: OperatorList.OperatorListState | undefined;
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using

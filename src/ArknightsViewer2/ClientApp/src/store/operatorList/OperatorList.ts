@@ -3,6 +3,7 @@ import { IOperatorListService } from "../../components/operatorList/services/IOp
 import { OperatorListService } from "../../components/operatorList/services/implementation/OperatorListService";
 import { ApplicationState, AppThunkAction } from "..";
 import { Action, Reducer } from "redux";
+import { WeatherForecast } from "../WeatherForecasts";
 
 // -----------------
 // STATE - This defines the type of data maintained in the Redux store.
@@ -34,9 +35,14 @@ const operatorListService: IOperatorListService = new OperatorListService();
 
 function doGetOperatorsList(dispatch: (action: KnownAction) => void, getState: () => ApplicationState): void {
     const appState = getState();
-    if (appState && appState.operatorsList) {
+    if (appState && appState.operatorList) {
+        fetch(`weatherforecast`)
+            .then(response => response.json() as Promise<WeatherForecast[]>)
+            .then(data => {
+                dispatch({ type: 'RECEIVE_OPERATORS_LIST', operators: operatorListService.getOperators() });
+            });
+
         dispatch({ type: 'REQUEST_OPERATORS_LIST' });
-        dispatch({ type: 'RECEIVE_OPERATORS_LIST', operators: operatorListService.getOperators() });
     }
 }
 
