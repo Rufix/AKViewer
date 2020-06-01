@@ -1,16 +1,17 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
-import { ApplicationState } from '../../../store';
-import * as OperatorListStore from '../../../store/operatorList/OperatorList';
-import OperatorListTable from './OperatorListTable';
-import { OperatorListItem } from '../types';
 import { RouteComponentProps } from 'react-router';
+import { ApplicationState } from '../../../store';
+import * as OperatorListActionCreators from '../../../store/operatorList/actionCreators';
+import { OperatorListState } from '../../../store/operatorList/state';
+import { OperatorListItem } from '../types';
+import OperatorListTable from './OperatorListTable';
 
-import '../style.css'
+import '../style.css';
 
 type OperatorListProps =
-    OperatorListStore.OperatorListState &
-    typeof OperatorListStore.actionCreators &
+    OperatorListState &
+    typeof OperatorListActionCreators.actionCreators &
     RouteComponentProps<{}>;
 
 class OperatorList extends React.PureComponent<OperatorListProps> {
@@ -38,5 +39,5 @@ class OperatorList extends React.PureComponent<OperatorListProps> {
 
 export default connect(
     (state: ApplicationState) => state.operatorList,
-    OperatorListStore.actionCreators
+    OperatorListActionCreators.actionCreators
 )(OperatorList as any);
