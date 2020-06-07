@@ -3,7 +3,7 @@ import { OperatorListTableProps, OperatorListItem } from '../types';
 import React from 'react';
 
 class OperatorListTable extends React.PureComponent<OperatorListTableProps> {
-    private readonly operatorsPerRow: number = 4
+    private readonly operatorsPerRow: number = 3
 
     constructor(props: OperatorListTableProps) {
         super(props);
@@ -33,7 +33,7 @@ class OperatorListTable extends React.PureComponent<OperatorListTableProps> {
     }
 
     private buildRow(operators: OperatorListItem[], rowNumber: number): JSX.Element {
-        const list = operators.map((operator) => (<OperatorListTableCell key={operator.name} name={operator.name} />));
+        const list = operators.map((operator) => (<OperatorListTableCell key={operator.name} operator={operator} />));
         return (
             <div key={rowNumber}>
                 {list}

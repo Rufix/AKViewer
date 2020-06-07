@@ -1,6 +1,12 @@
-﻿.operator-list-table-cell {
+﻿/* Table master styles */
+.operator-list-table {
+    display: table;
+}
+
+/* Table cell styles */
+.operator-list-table-cell {
     float: left;
-    width: 100px;
+    width: 360px;
     text-align: center;
     border: 1px darkblue solid;
 }
@@ -9,6 +15,19 @@
     margin: 5px 0px;
 }
 
-.operator-list-table {
-    display: table;
+.operator-list-table-cell-content-left {
+    float: left;
+}
+
+.operator-list-table-cell-content-left > p {
+    margin-bottom: 0px;
+}
+
+.operator-list-table-cell-content-right {
+    float: right;
+}
+
+.operator-cg-miniature img {
+    width: 100px;
+    height: 100px;
 }

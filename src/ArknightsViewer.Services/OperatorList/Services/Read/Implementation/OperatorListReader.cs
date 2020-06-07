@@ -17,7 +17,8 @@ namespace ArknightsViewer.Services.OperatorList.Services.Read.Implementation
             };
             var result = names.Select(z => new OperatorListItem
             {
-                Name = z
+                Name = z,
+                BasicInfo = new OperatorBasicInfo()
             });
             return Task.FromResult(result);
         }

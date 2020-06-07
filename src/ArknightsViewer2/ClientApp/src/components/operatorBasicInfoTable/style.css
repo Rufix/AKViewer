@@ -1,0 +1,7 @@
+﻿.operator-basic-info-table {
+    width: 250px;
+}
+
+.operator-basic-info-table tr:first-of-type {
+    border-bottom: 1px solid #ccd5ff;
+}
