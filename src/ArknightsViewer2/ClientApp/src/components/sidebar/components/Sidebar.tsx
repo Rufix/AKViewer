@@ -4,6 +4,8 @@ import { ApplicationState } from '../../../store';
 import * as SidebarActionCreators from '../../../store/sidebar/actionCreators';
 import { SidebarState } from '../../../store/sidebar/state';
 import '../style.css'
+import { SidebarComponent } from '../../shared/types';
+import OperatorList from '../../operatorList/components/OperatorList';
 
 type SidebarProps =
     SidebarState &
@@ -16,13 +18,23 @@ class Sidebar extends React.PureComponent<SidebarProps> {
             : null;
     }
 
-    private renderSidebar() {
+    private renderSidebar(): JSX.Element {
         return (
-            <div className="sidebar-modal" onClick={this.props.toggleSidebar}>
+            <div className="sidebar-modal" onClick={() => this.props.toggleSidebar(this.props.content)}>
                 <div className="sidebar">
+                    {this.chooseContent()}
                 </div>
             </div>
         );
+    }
+
+    private chooseContent(): JSX.Element | null {
+        switch (this.props.content) {
+            case SidebarComponent.OperatorList:
+                return (<OperatorList />);
+            default: 
+                return (null);
+        }
     }
 }
 

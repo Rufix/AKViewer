@@ -1,22 +1,19 @@
 ﻿import * as React from 'react';
-import { connect } from 'react-redux';
-import { ApplicationState } from '../../../store';
-import * as SidebarActionCreators from '../../../store/sidebar/actionCreators';
 import { SidebarState } from '../../../store/sidebar/state';
+import * as SidebarActionCreators from '../../../store/sidebar/actionCreators';
 
-type SidebarProps =
+type SidebarToggleButtonProps =
     SidebarState &
     typeof SidebarActionCreators.actionCreators;
 
-class SidebarToggleButton extends React.PureComponent<SidebarProps> {
+abstract class SidebarToggleButton extends React.PureComponent<SidebarToggleButtonProps> {
     public render() {
         return (
-            <button onClick={this.props.toggleSidebar}>Open</button>
+            <button onClick={this.toggleSidebar.bind(this)}>Open</button>
         );
     }
+
+    protected abstract toggleSidebar(): void;
 }
 
-export default connect(
-    (state: ApplicationState) => state.sidebar,
-    SidebarActionCreators.actionCreators
-)(SidebarToggleButton as any);
+export default SidebarToggleButton;

@@ -8,18 +8,17 @@ import '../style.css';
 import { OperatorListItem } from '../types';
 import OperatorListTable from './OperatorListTable';
 
-
 type OperatorListProps =
     OperatorListState &
     typeof OperatorListActionCreators.actionCreators &
     RouteComponentProps<{}>;
 
 class OperatorList extends React.PureComponent<OperatorListProps> {
-    public componentDidMount() {
+    public componentDidMount(): void {
         this.ensureDataFetched();
     }
 
-    private ensureDataFetched() {
+    private ensureDataFetched(): void {
         this.props.getOperatorsList();
     }
 

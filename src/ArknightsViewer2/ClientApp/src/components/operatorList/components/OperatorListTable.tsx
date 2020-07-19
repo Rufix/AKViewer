@@ -18,7 +18,7 @@ class OperatorListTable extends React.PureComponent<OperatorListTableProps> {
         );
     }
 
-    private buildTable() {
+    private buildTable(): JSX.Element {
         const numberOfRows = Math.ceil(this.props.operators.length / this.operatorsPerRow);
         let operatorRows: JSX.Element[] = [];
         for (let i = 0; i < numberOfRows; i++) {

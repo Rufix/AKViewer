@@ -27,3 +27,8 @@ export enum OperatorType {
     Supporter,
     Vanguard
 }
+
+export enum SidebarComponent {
+    Null,
+    OperatorList
+}
