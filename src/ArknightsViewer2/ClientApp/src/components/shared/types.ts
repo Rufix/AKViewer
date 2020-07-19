@@ -30,5 +30,5 @@ export enum OperatorType {
 
 export enum SidebarComponent {
     Null,
-    OperatorList
+    OperatorDetails
 }

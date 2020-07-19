@@ -3,4 +3,5 @@
 export interface SidebarState {
     isOpen: boolean;
     content: SidebarComponent;
+    props: any;
 }

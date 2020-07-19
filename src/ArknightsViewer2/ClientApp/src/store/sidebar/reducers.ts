@@ -6,7 +6,8 @@ import { SidebarComponent } from "../../components/shared/types";
 
 const unloadedState: SidebarState = {
     isOpen: false,
-    content: SidebarComponent.Null
+    content: SidebarComponent.Null,
+    props: {}
 }
 
 export const reducer: Reducer<SidebarState> = (state: SidebarState | undefined, incomingAction: Action): SidebarState => {
@@ -21,7 +22,8 @@ export const reducer: Reducer<SidebarState> = (state: SidebarState | undefined, 
         case 'RECEIVE_SIDEBAR_TOGGLE':
             return {
                 isOpen: action.isOpen,
-                content: action.content
+                content: action.content,
+                props: action.props
             };
     }
 

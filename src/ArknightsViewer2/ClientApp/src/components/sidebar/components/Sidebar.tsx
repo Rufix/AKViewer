@@ -5,7 +5,7 @@ import * as SidebarActionCreators from '../../../store/sidebar/actionCreators';
 import { SidebarState } from '../../../store/sidebar/state';
 import '../style.css'
 import { SidebarComponent } from '../../shared/types';
-import OperatorList from '../../operatorList/components/OperatorList';
+import OperatorDetails from '../../operatorDetails/components/OperatorDetails';
 
 type SidebarProps =
     SidebarState &
@@ -30,8 +30,8 @@ class Sidebar extends React.PureComponent<SidebarProps> {
 
     private chooseContent(): JSX.Element | null {
         switch (this.props.content) {
-            case SidebarComponent.OperatorList:
-                return (<OperatorList />);
+            case SidebarComponent.OperatorDetails:
+                return (<OperatorDetails {...this.props.props} />);
             default: 
                 return (null);
         }

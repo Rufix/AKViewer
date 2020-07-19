@@ -8,6 +8,7 @@ interface ReceiveSidebarToggle {
     type: 'RECEIVE_SIDEBAR_TOGGLE';
     isOpen: boolean;
     content: SidebarComponent;
+    props: any;
 }
 
 export type KnownAction = RequestSidebarAction | ReceiveSidebarToggle;
