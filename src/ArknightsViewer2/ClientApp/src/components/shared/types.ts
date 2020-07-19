@@ -5,18 +5,19 @@
     damageType: DamageType;
 };
 
-enum NumberOfTargets {
+export enum NumberOfTargets {
     One,
     Three,
     AoE
 }
 
-enum DamageType {
+export enum DamageType {
     Physical,
-    Arts
+    Arts,
+    True
 }
 
-enum OperatorType {
+export enum OperatorType {
     Caster,
     Defender,
     Guard,
