@@ -5,11 +5,3 @@ export type OperatorListItem = {
     miniatureUrl: string;
     basicInfo: OperatorBasicInfo;
 };
-
-export type OperatorListTableProps = {
-    operators: OperatorListItem[];
-};
-
-export type OperatorListTableCellProps = {
-    operator: OperatorListItem;
-};

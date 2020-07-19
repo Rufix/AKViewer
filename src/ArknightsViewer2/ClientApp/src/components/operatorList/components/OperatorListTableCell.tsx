@@ -1,8 +1,11 @@
 ﻿import React from 'react';
 import OperatorBasicInfoTable from '../../operatorBasicInfoTable/components/OperatorBasicInfoTable';
-import SidebarToggleButton from '../../sidebar/components/SidebarToggleButton';
-import { OperatorListTableCellProps } from '../types';
-import OperatorListSidebarToggleButton from './OperatorListSidebarToggleButton';
+import OperatorListSidebarToggleButton from '../../sidebar/components/OperatorDetailsSidebarToggleButton';
+import { OperatorListItem } from '../types';
+
+type OperatorListTableCellProps = {
+    operator: OperatorListItem;
+};
 
 class OperatorListTableCell extends React.PureComponent<OperatorListTableCellProps> {
     public render() {

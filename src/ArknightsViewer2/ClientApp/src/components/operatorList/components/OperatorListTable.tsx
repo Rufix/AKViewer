@@ -1,6 +1,10 @@
 ﻿import OperatorListTableCell from './OperatorListTableCell';
-import { OperatorListTableProps, OperatorListItem } from '../types';
+import { OperatorListItem } from '../types';
 import React from 'react';
+
+export type OperatorListTableProps = {
+    operators: OperatorListItem[];
+};
 
 class OperatorListTable extends React.PureComponent<OperatorListTableProps> {
     private readonly operatorsPerRow: number = 3
