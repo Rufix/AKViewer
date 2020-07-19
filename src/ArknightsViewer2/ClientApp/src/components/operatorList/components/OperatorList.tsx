@@ -4,10 +4,10 @@ import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../../../store';
 import * as OperatorListActionCreators from '../../../store/operatorList/actionCreators';
 import { OperatorListState } from '../../../store/operatorList/state';
+import '../style.css';
 import { OperatorListItem } from '../types';
 import OperatorListTable from './OperatorListTable';
 
-import '../style.css';
 
 type OperatorListProps =
     OperatorListState &

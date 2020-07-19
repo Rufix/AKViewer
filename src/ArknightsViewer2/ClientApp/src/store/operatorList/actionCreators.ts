@@ -3,7 +3,6 @@ import { OperatorListService } from "../../components/operatorList/services/impl
 import { IOperatorListService } from "../../components/operatorList/services/IOperatorListService";
 import { KnownAction } from "./actions";
 
-
 const operatorListService: IOperatorListService = new OperatorListService();
 
 function doGetOperatorsList(dispatch: (action: KnownAction) => void, getState: () => ApplicationState): void {
